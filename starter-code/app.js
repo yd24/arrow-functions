@@ -177,11 +177,21 @@ let Student = function(name, age, hometown) {
   this.hometown = hometown;
 };
 
+
+//Refactor function 5 (commented out as arrow functions cannot be used as constructors);
+/*
+  let Student = (name, age, hometown) => {
+    this.name = name;
+    this.age = age;
+    this.hometown = hometown;
+  }
+*/
+
 let joe = new Student('Joe Schmoe', 100, 'Anytown, USA');
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-// console.log(joe);
+console.log(joe);
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -191,20 +201,27 @@ Student.prototype.greeting = function() {
   return `Hi, my name is ${this.name}`;
 };
 
+//Refactored function 6 (commented out as arrow function doesn't refer to object when using this).
+//Student.prototype.greeting = () => `Hi, my name is ${this.name}`;
+
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-// console.log(joe.greeting());
+console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
 
+/*
+  Student.courseName = function() {
+    return 'This student is enrolled in Code 301.';
+  };
+*/
 
-Student.courseName = function() {
-  return 'This student is enrolled in Code 301.';
-};
+//Refactored function 7
+Student.courseName = () => 'This student is enrolled in Code 301.';
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
